@@ -36,14 +36,6 @@ Agaate/
 - ✅ Team marquee with 3D effects
 - ✅ Smooth scroll navigation
 
-## Deployment
-
-See `MIGRATION_DOCUMENTATION.md` for detailed deployment instructions including AWS EC2 setup.
-
-## Documentation
-
-For complete documentation, see [MIGRATION_DOCUMENTATION.md](./MIGRATION_DOCUMENTATION.md)
-
 ## Browser Support
 
 - Chrome/Edge (latest)
