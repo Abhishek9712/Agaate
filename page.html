@@ -1,0 +1,633 @@
+<main class="min-h-screen md:mb-0 lg:md-0 mb-0">
+  <!-- Hero Section -->
+  <section id="home" class="relative h-screen w-full sm:px-10 p-2">
+    <!-- Background Image -->
+    <img
+      src="./public/images/heroimage.png"
+      alt="Agaate Hero"
+      class="absolute inset-0 w-full h-full object-fill"
+    />
+
+    <!-- Overlay -->
+    <div class="relative h-screen w-full">
+      <!-- Hero Content -->
+      <div class="relative w-full z-10 flex h-full flex-col items-center justify-center text-center text-white">
+        <h1 class="text-3xl md:text-6xl font-bold mb-4 lg:text-8xl">
+          Natural Farming <br />
+          <span class="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
+            Technology-Driven Agriculture
+          </span>
+        </h1>
+
+        <p class="md:text-xl max-w-7xl">
+          We grow food the natural way - chemical-free, nutrient-rich, and sustainable.
+          By combining traditional wisdom with modern seedless farming practices, we
+          protect soil health, ecosystems, and deliver safe, natural produce.
+        </p>
+
+        <div class="w-full flex gap-10 justify-center mt-5">
+          <!-- Explore Button -->
+          <button class="text-white bg-green-600 px-5 py-1 rounded-2xl flex items-center gap-2 font-bold">
+            Explore
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="bg-yellow-400 rounded-2xl"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <!-- Contact Button (Outlined) -->
+          <a
+            href="#contact"
+            class="text-yellow-400 px-5 py-1 rounded-2xl flex items-center gap-2 font-bold border-2 border-yellow-400 bg-transparent hover:bg-yellow-400 hover:text-black transition"
+          >
+            Contact
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="bg-yellow-400 rounded-2xl text-black"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="w-full bg-white">
+    <div
+      id="stats-container"
+      class="w-full flex flex-col md:flex-row justify-around md:justify-between gap-6 md:gap-4 py-10 md:py-14 lg:py-20 px-4 sm:px-8 md:px-12 lg:px-20 text-white"
+    >
+      <!-- Stats will be populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section
+    id="about"
+    class="w-full min-h-screen py-12 sm:py-16 md:py-20 bg-gray-100 flex items-center"
+  >
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-4 sm:mb-6">
+        About Agaate
+      </h2>
+      <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16 text-sm sm:text-base">
+        We are dedicated to revolutionizing Indian agriculture with premium,
+        seedless plant varieties that maximize yields while minimizing
+        environmental impact.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-bold text-green-700 mb-4">
+            Our Mission: Growing Better Tomorrow
+          </h3>
+          <p class="text-gray-700 mb-4 text-sm sm:text-base">
+            Agaate – Anzix is a forward-thinking agricultural company focused on
+            sustainable development and innovation. Through advanced nursery
+            technologies, modern cultivation practices, and specialized seedless
+            farming solutions, we support farmers in improving productivity and
+            optimizing resources.
+          </p>
+          <p class="text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base">
+            Our commitment lies in promoting environmentally responsible
+            agriculture while delivering reliable, high-quality solutions tailored
+            to the evolving needs of the farming community.
+          </p>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-base sm:text-lg font-semibold text-green-700">
+                Organic &amp; Pure
+              </h4>
+              <p class="text-gray-600 text-sm sm:text-base">
+                Naturally grown without harmful chemicals
+              </p>
+            </div>
+            <div>
+              <h4 class="text-base sm:text-lg font-semibold text-green-700">
+                Sustainable
+              </h4>
+              <p class="text-gray-600 text-sm sm:text-base">
+                Environmentally responsible farming practices
+              </p>
+            </div>
+            <div>
+              <h4 class="text-base sm:text-lg font-semibold text-green-700">
+                High Quality
+              </h4>
+              <p class="text-gray-600 text-sm sm:text-base">
+                Certified seedlings with guaranteed germination
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="relative w-full h-[260px] sm:h-[320px] md:h-[380px] rounded-3xl overflow-hidden">
+          <img
+            src="./public/images/team.png"
+            alt="Meet the Agaate Team"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands & Associations Section -->
+  <section class="w-full py-10 md:py-14 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-8 md:mb-12">
+        Brands &amp; Associations
+      </h2>
+
+      <!-- Tabs -->
+      <div class="flex justify-center flex-wrap gap-3 md:gap-5 lg:gap-6 mb-10 md:mb-14">
+        <button
+          data-tab="buyer"
+          class="brand-tab px-6 py-2 md:px-12 md:py-3 rounded-xl font-semibold shadow text-sm md:text-base bg-yellow-400 text-white"
+        >
+          Buyer
+        </button>
+        <button
+          data-tab="seller"
+          class="brand-tab px-6 py-2 md:px-12 md:py-3 rounded-xl font-semibold shadow text-sm md:text-base bg-white text-green-700 border"
+        >
+          Seller
+        </button>
+        <button
+          data-tab="vegSeller"
+          class="brand-tab px-6 py-2 md:px-12 md:py-3 rounded-xl font-semibold shadow text-sm md:text-base bg-white text-green-700 border"
+        >
+          Veg Seller
+        </button>
+      </div>
+
+      <!-- Logos Grid -->
+      <div id="brands-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-10 lg:gap-12 items-center justify-items-center">
+        <!-- Brands will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Journey Section -->
+  <section class="w-full py-10 md:py-14 lg:py-10 bg-white">
+    <div class="w-[92%] md:w-[85%] lg:w-[75%] mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-4 md:mb-6">
+        Our Journey
+      </h2>
+      <p class="text-center text-gray-600 mb-8 md:mb-12 max-w-3xl mx-auto text-sm md:text-base">
+        From a small vision to a thriving agricultural ecosystem.
+        Witness how Agaate has grown to become a trusted name in seedless farming.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="relative w-full h-56 sm:h-64 md:h-72 lg:h-80">
+          <img
+            src="./public/images/journey.png"
+            alt="Crop growth journey"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="text-gray-700 leading-relaxed text-sm md:text-base lg:text-lg">
+          <p class="mb-4">
+            <strong>Agaate</strong> is transforming Indian vegetable farming by
+            replacing risky direct seed sowing with a science-backed,
+            Bio-Boosted Nursery model.
+          </p>
+          <p>
+            Our nursery-grown seedlings ensure <strong>90–98% germination</strong>
+            and survival (vs 50–70% traditionally), eliminating
+            <strong> 30–50% seed waste</strong>. Farmers achieve
+            <strong> 15–30% more yield</strong> while reducing chemical usage
+            by <strong>50–70%</strong>, resulting in healthier crops and soil.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology & Scale Section -->
+  <section class="w-full py-10 md:py-14 lg:py-18 xl:py-20 2xl:py-20 flex items-center bg-white">
+    <div class="w-[92%] md:w-[90%] lg:w-[87%] xl:w-[85%] 2xl:w-[80%] mx-auto flex flex-col justify-center">
+      <h2 class="text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl font-bold text-center text-green-700 mb-8 md:mb-12 lg:mb-14 xl:mb-12">
+        Technology &amp; Scale
+      </h2>
+      <div class="flex flex-col md:flex-row gap-10 md:gap-12 lg:gap-14 xl:gap-16 2xl:gap-20 items-center">
+        <div class="flex justify-center md:justify-start text-center md:text-left">
+          <h1 class="text-gray-200 text-4xl leading-tight md:text-[6rem] md:leading-tight lg:text-[8rem] xl:text-[9rem] 2xl:text-[10rem] font-extrabold select-none pointer-events-none">
+            Farmer <br />
+            First <br />
+            Always
+          </h1>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 w-full">
+          <div class="w-full group transition duration-300 rounded-2xl py-6 px-4 md:px-4 lg:px-6 xl:px-8 shadow hover:bg-yellow-400 flex flex-col justify-center">
+            <span class="text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-2 transition-all group-hover:text-4xl">🌱</span>
+            <h3 class="font-bold mb-1 text-[1rem] md:text-[1rem] lg:text-[1.25rem] group-hover:text-white">
+              Seedless &amp; Precision Farming
+            </h3>
+            <p class="text-sm md:text-[1rem] lg:text-[1rem] opacity-90 text-gray-500 transition group-hover:text-black">
+              Higher yield consistency · Export-grade output
+            </p>
+          </div>
+          <div class="w-full group transition duration-300 rounded-2xl py-6 px-4 md:px-4 lg:px-6 xl:px-8 shadow hover:bg-yellow-400 flex flex-col justify-center">
+            <span class="text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-2 transition-all group-hover:text-4xl">📊</span>
+            <h3 class="font-bold mb-1 text-[1rem] md:text-[1rem] lg:text-[1.25rem] group-hover:text-white">
+              Smart Crop Cycles
+            </h3>
+            <p class="text-sm md:text-[1rem] lg:text-[1rem] opacity-90 text-gray-500 transition group-hover:text-black">
+              Data-driven sowing → harvesting timelines
+            </p>
+          </div>
+          <div class="w-full group transition duration-300 rounded-2xl py-6 px-4 md:px-4 lg:px-6 xl:px-8 shadow hover:bg-yellow-400 flex flex-col justify-center">
+            <span class="text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-2 transition-all group-hover:text-4xl">💧</span>
+            <h3 class="font-bold mb-1 text-[1rem] md:text-[1rem] lg:text-[1.25rem] group-hover:text-white">
+              Sustainable Yield Optimization
+            </h3>
+            <p class="text-sm md:text-[1rem] lg:text-[1rem] opacity-90 text-gray-500 transition group-hover:text-black">
+              Less water · Fewer chemicals · More output
+            </p>
+          </div>
+          <div class="w-full group transition duration-300 rounded-2xl py-6 px-4 md:px-4 lg:px-6 xl:px-8 shadow hover:bg-yellow-400 flex flex-col justify-center">
+            <span class="text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-2 transition-all group-hover:text-4xl">🤝</span>
+            <h3 class="font-bold mb-1 text-[1rem] md:text-[1rem] lg:text-[1.25rem] group-hover:text-white">
+              Farmer Enablement Platform
+            </h3>
+            <p class="text-sm md:text-[1rem] lg:text-[1rem] opacity-90 text-gray-500 transition group-hover:text-black">
+              Training + inputs + buyback ecosystem
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End-to-End Farming Ecosystem -->
+  <section class="w-full py-8 md:py-12 lg:py-16 2xl:pt-0 bg-white">
+    <div class="w-[90%] md:w-[80%] lg:w-[50%] mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-8 md:mb-12">
+        End-to-End Farming Ecosystem
+      </h2>
+
+      <!-- Tabs -->
+      <div class="flex justify-center gap-3 md:gap-6 mb-8 md:mb-12 flex-wrap">
+        <button
+          data-ecosystem-tab="production"
+          class="ecosystem-tab px-5 py-2 md:px-8 md:py-3 rounded-xl font-semibold shadow text-sm md:text-base bg-yellow-400 text-white"
+        >
+          Production &amp; R&amp;D
+        </button>
+        <button
+          data-ecosystem-tab="retail"
+          class="ecosystem-tab px-5 py-2 md:px-8 md:py-3 rounded-xl font-semibold shadow text-sm md:text-base bg-white border text-green-700"
+        >
+          Retail and Distribution
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
+        <div>
+          <div class="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 rounded-2xl overflow-hidden">
+            <img
+              id="ecosystem-image"
+              src="./public/images/smart-nursery.jpg"
+              alt="Ecosystem"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col md:items-start gap-3">
+          <h3 id="ecosystem-heading" class="text-2xl md:text-3xl font-bold">
+            17-Acre Smart Nursery
+          </h3>
+          <ul id="ecosystem-points" class="list-disc pl-5 space-y-1 text-sm md:text-base">
+            <li>Seedless farming environment</li>
+            <li>Controlled conditions</li>
+            <li>In-house production &amp; trials</li>
+            <li>AI-driven climate monitoring</li>
+            <li>Integrated pest &amp; disease management</li>
+            <li>Standardized nursery protocols</li>
+            <li>Quality testing &amp; traceability</li>
+          </ul>
+          <p id="ecosystem-sub" class="italic text-gray-500 text-sm md:text-base">
+            Vertically integrated production hub
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modernised Nursery & Techniques Section -->
+  <section class="w-full py-16 bg-white">
+    <div class="w-[70%] mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-8">
+        Modernised Nursery &amp; Techniques
+      </h2>
+      <div class="relative w-full h-72 md:h-96 rounded-3xl overflow-hidden">
+        <img
+          id="nursery-slide"
+          src="./public/images/nursery-1.jpg"
+          alt="Nursery"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <h3 id="nursery-label" class="text-white text-2xl md:text-3xl font-bold">
+            Daily Monitoring
+          </h3>
+        </div>
+        <button
+          id="nursery-prev"
+          class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 px-3 py-1 rounded-full"
+        >
+          ‹
+        </button>
+        <button
+          id="nursery-next"
+          class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 px-3 py-1 rounded-full"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Products Section -->
+  <section class="w-full py-14 bg-white">
+    <div class="w-[70%] mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-10">
+        Our Products
+      </h2>
+      <div id="products-container" class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Products will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- kisan mall Section -->
+  <section id="kisanmall" class="w-full py-10 md:py-14 lg:py-20 bg-white">
+    <div class="w-[92%] md:w-[85%] lg:w-[70%] mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-6 md:mb-10">
+        Kisan Mall
+      </h2>
+      <div class="relative w-full h-48 sm:h-56 md:h-72 lg:h-80 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
+        <img
+          id="mall-banner"
+          src="./public/images/mall1.jpg"
+          alt="Kisan Mall Banner"
+          class="w-full h-full object-cover transition duration-500"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- news and media Section -->
+  <section class="w-full py-10 md:py-14 lg:py-20 bg-white">
+    <div class="w-[92%] md:w-[85%] lg:w-[70%] mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-8 md:mb-10">
+        In News &amp; Media
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div class="flex flex-col gap-3">
+          <div class="relative w-full h-44 sm:h-48 md:h-56 rounded-2xl overflow-hidden">
+            <img
+              src="./public/images/news1.jpg"
+              alt="News"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <p class="text-sm md:text-base font-medium text-gray-800 leading-snug">
+            Discover how modern farming techniques like drip irrigation, mulching, staking and quality nursery saplings are transforming watermelon cultivation in India.
+          </p>
+          <p class="text-xs md:text-sm text-gray-500">
+            With the right methods, farmers are seeing higher yields, better fruit quality, and greater profits in every season.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <div class="relative w-full h-44 sm:h-48 md:h-56 rounded-2xl overflow-hidden">
+            <img
+              src="./public/images/news2.jpg"
+              alt="News"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <p class="text-sm md:text-base font-medium text-gray-800 leading-snug">
+            Staking एक सस्ती लागत तकनीक है, जो नुकसान कमकर, फलों की गुणवत्ता बढ़ाती है। छोटे किसान भी आसानी से अपना सकते हैं।
+          </p>
+          <p class="text-xs md:text-sm text-gray-500">
+            With higher stability, better fruit form, and greater protection, staking helps farmers maximize returns.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="flex gap-3 items-start">
+            <div class="relative w-20 h-14 sm:w-24 sm:h-16 rounded-xl overflow-hidden flex-shrink-0">
+              <img
+                src="./public/images/n1.jpg"
+                alt="News Item"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-xs sm:text-sm text-gray-700 leading-snug">
+              Crop Cover is essential to protect your crops from cold and frost during the winter season.
+            </p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="relative w-20 h-14 sm:w-24 sm:h-16 rounded-xl overflow-hidden flex-shrink-0">
+              <img
+                src="./public/images/nursery-2.jpg"
+                alt="News Item"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-xs sm:text-sm text-gray-700 leading-snug">
+              Crop Cover is essential to protect your crops from cold and frost during the winter season.
+            </p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="relative w-20 h-14 sm:w-24 sm:h-16 rounded-xl overflow-hidden flex-shrink-0">
+              <img
+                src="./public/images/nursery-3.jpg"
+                alt="News Item"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-xs sm:text-sm text-gray-700 leading-snug">
+              Crop Cover is essential to protect your crops from cold and frost during the winter season.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- farmer img Section -->
+  <section class="w-full relative h-[230px] md:h-[500px]">
+    <img
+      src="./public/images/farmer.png"
+      alt="Farmer"
+      class="w-full h-full object-contain xl:object-cover 2xl:object-fill"
+    />
+  </section>
+
+  <!-- Seedless Farming Process Section -->
+  <section class="w-full h-full py-10 md:py-14 lg:py-20">
+    <div class="w-[92%] md:w-[85%] lg:w-[70%] mx-auto border rounded-xl p-6 md:p-10 bg-gray-50">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-2">
+        Seedless Farming Process
+      </h2>
+      <p class="text-center text-gray-600 mb-8 md:mb-10 text-sm md:text-base">
+        Our systematic approach ensures consistent quality and maximum yield in every harvest cycle.
+      </p>
+      <div id="steps-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Steps will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="w-full py-10 md:py-14 lg:py-10">
+    <div class="w-[92%] md:w-[85%] lg:w-[70%] mx-auto text-center">
+      <!-- Tabs -->
+      <div class="flex justify-center gap-4 md:gap-6 mb-6 flex-wrap">
+        <button
+          data-testimonial-tab="farmers"
+          class="testimonial-tab px-6 md:px-8 py-2 rounded-xl font-semibold shadow text-sm md:text-base bg-green-700 text-white"
+        >
+          What Our Farmers Say
+        </button>
+        <button
+          data-testimonial-tab="investors"
+          class="testimonial-tab px-6 md:px-8 py-2 rounded-xl font-semibold shadow text-sm md:text-base bg-white border"
+        >
+          What Our Investors Say
+        </button>
+      </div>
+      <p class="text-gray-600 mb-8 md:mb-10 text-sm md:text-base">
+        Trusted by thousands of farmers worldwide for quality products and innovative solutions.
+      </p>
+      <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <!-- Testimonials will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team Section -->
+  <section class="w-full py-10 md:py-14 lg:py-20 bg-white">
+    <div class="w-[92%] md:w-[85%] lg:w-[70%] mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-8 md:mb-10">
+        Our Team
+      </h2>
+      <div
+        id="team-container"
+        class="relative w-full overflow-x-auto overflow-y-hidden no-scrollbar"
+      >
+        <div id="team-marquee" class="flex gap-6 md:gap-10 w-max">
+          <!-- Team members will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section
+    id="contact"
+    class="w-full min-h-screen py-12 md:py-16 lg:py-24 bg-gray-50"
+  >
+    <div class="w-[92%] md:w-[85%] lg:w-[70%] mx-auto">
+      <h2 class="text-center text-3xl md:text-4xl font-bold text-green-700 mb-2">
+        Get In Touch
+      </h2>
+      <p class="text-center text-gray-600 mb-10 text-sm md:text-base">
+        Have questions about our products or seedless farming technology? We're here to help.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <!-- LEFT — FORM -->
+        <div class="bg-white rounded-xl shadow p-6 md:p-7 space-y-4 flex flex-col h-full">
+          <div>
+            <label class="text-sm font-semibold block mb-1">Full Name</label>
+            <input class="border rounded-md w-full p-2 text-sm md:text-base" type="text" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold block mb-1">Email Address</label>
+            <input class="border rounded-md w-full p-2 text-sm md:text-base" type="email" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold block mb-1">Phone Number</label>
+            <input class="border rounded-md w-full p-2 text-sm md:text-base" type="tel" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold block mb-1">Purpose</label>
+            <input class="border rounded-md w-full p-2 text-sm md:text-base" type="text" />
+          </div>
+          <div class="flex-1">
+            <label class="text-sm font-semibold block mb-1">Message</label>
+            <textarea rows="6" class="border rounded-md w-full p-2 text-sm md:text-base h-auto"></textarea>
+          </div>
+          <button class="w-full bg-green-600 text-white py-2 rounded-md font-semibold">
+            Send Message
+          </button>
+        </div>
+
+        <!-- RIGHT — ADDRESSES -->
+        <div class="flex flex-col gap-5 h-full">
+          <div class="bg-white rounded-xl shadow p-5 flex gap-4 flex-1">
+            <div class="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-green-700">
+              📍
+            </div>
+            <div>
+              <p class="font-semibold mb-1">Address</p>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                1234 Agricultural Boulevard <br />
+                Farmville, AG 12345, United States
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5 flex gap-4 flex-1">
+            <div class="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-green-700">
+              📍
+            </div>
+            <div>
+              <p class="font-semibold mb-1">Address</p>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                1234 Agricultural Boulevard <br />
+                Farmville, AG 12345, United States
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow p-5 flex gap-4 flex-1">
+            <div class="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-green-700">
+              📍
+            </div>
+            <div>
+              <p class="font-semibold mb-1">Address</p>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                1234 Agricultural Boulevard <br />
+                Farmville, AG 12345, United States
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
