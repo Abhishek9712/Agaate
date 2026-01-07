@@ -2,6 +2,27 @@
 function initHeader() {
   const headerContainer = document.getElementById("header-container");
   const headerWrapper = document.getElementById("header-wrapper");
+
+  function resetMobileHeader() {
+    // Show header container again
+    headerContainer.style.display = "";
+    
+    // Reset hamburger button styles
+    mobileMenuBtn.style.position = "";
+    mobileMenuBtn.style.top = "";
+    mobileMenuBtn.style.right = "";
+    mobileMenuBtn.style.zIndex = "";
+    mobileMenuBtn.style.backgroundColor = "";
+    mobileMenuBtn.style.backdropFilter = "";
+    mobileMenuBtn.style.padding = "";
+    mobileMenuBtn.style.borderRadius = "";
+    
+    // Hide mobile menu
+    mobileMenu.classList.add("hidden");
+    
+    // Restore body scroll
+    document.body.style.overflow = "";
+  }
   
   // If header not loaded yet, retry after a short delay
   if (!headerContainer || !headerWrapper) {
@@ -23,8 +44,8 @@ function initHeader() {
       headerContainer.style.width = "100%";
     } else {
       // Mobile: wrapper full width, container full width
-      headerWrapper.style.width = "100%";
-      headerContainer.style.width = "100%";
+      headerWrapper.style.width = "85%";
+      headerContainer.style.width = "85%";
     }
   }
   
@@ -32,31 +53,46 @@ function initHeader() {
 
   // Header shrink on scroll (only on desktop)
   let shrink = false;
+
   function updateHeaderWidth() {
     if (!headerContainer || !headerWrapper) return;
-    
-    // Only apply shrink effect on desktop (≥768px)
-    if (window.innerWidth >= 768) {
-      const shouldShrink = window.scrollY > 10;
-      if (shouldShrink !== shrink) {
-        shrink = shouldShrink;
-        if (shrink) {
+
+    const shouldShrink = window.scrollY > 10;
+
+    if (shouldShrink !== shrink) {
+      shrink = shouldShrink;
+
+      if (shrink) {
+        // Shrinked widths
+        if (window.innerWidth >= 1024) {
+          // Desktop / Large screens
           headerWrapper.style.width = "60%";
-          // Reduce gap in nav when shrunk
-          const nav = headerContainer.querySelector('nav');
-          if (nav) nav.style.gap = '3rem';
+        } else if (window.innerWidth >= 768) {
+          // Tablet
+          headerWrapper.style.width = "70%";
+        } else {
+          // Mobile
+          headerWrapper.style.width = "72%";
+        }
+
+        // Reduce nav gap (desktop only)
+        const nav = headerContainer.querySelector("nav");
+        if (nav && window.innerWidth >= 768) {
+          nav.style.gap = "3rem";
+        }
+
+      } else {
+        // Expanded widths
+        if (window.innerWidth >= 768) {
+          headerWrapper.style.width = "85%";
         } else {
           headerWrapper.style.width = "85%";
-          // Restore gap in nav
-          const nav = headerContainer.querySelector('nav');
-          if (nav) nav.style.gap = '';
         }
+
+        // Restore nav gap
+        const nav = headerContainer.querySelector("nav");
+        if (nav) nav.style.gap = "";
       }
-    } else {
-      // Mobile: always full width, no shrink
-      headerWrapper.style.width = "100%";
-      headerContainer.style.width = "100%";
-      shrink = false;
     }
   }
 
@@ -146,10 +182,11 @@ function initHeader() {
       behavior: "smooth",
       block: "start",
     });
-    mobileMenu.classList.add("hidden");
-    headerContainer.classList.remove("hidden");
-    headerWrapper.classList.remove("hidden");
-    document.body.style.overflow = "";
+
+    // Properly reset mobile header state
+    if (window.innerWidth < 768) {
+      resetMobileHeader();
+    }
   }
 
   navLinks.forEach((link) => {
