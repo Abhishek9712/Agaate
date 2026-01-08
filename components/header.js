@@ -44,7 +44,7 @@ function initHeader() {
       headerContainer.style.width = "100%";
     } else {
       // Mobile: wrapper full width, container full width
-      headerWrapper.style.width = "85%";
+      headerWrapper.style.width = "100%";
       headerContainer.style.width = "85%";
     }
   }

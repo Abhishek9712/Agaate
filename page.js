@@ -130,7 +130,7 @@ const team = [
   { img: "./public/images/alok.jpg", name: "Alok", role: "Nursery Owner" },
   { img: "./public/images/chandramani.jpg", name: "Chandramani", role: "Mall Sales" },
   { img: "./public/images/pradeep.jpg", name: "Pradeep", role: "Mall Sales" },
-  { img: "./public/images/ravi.png", name: "Ravi Kumar", role: "Data & Strategy" },
+  // { img: "./public/images/ravi.png", name: "Ravi Kumar", role: "Data & Strategy" },
   // Note: mishra.jpg and ujjwal.jpg may not exist, so excluding them
 ];
 
