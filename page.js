@@ -480,7 +480,7 @@ function setupTeamMarquee() {
   
   function animate() {
     if (!isPaused) {
-      x -= 1;
+      x -= 0.3;
       // Reset when scrolled past the duplicate point
       const marqueeWidth = marquee.scrollWidth / 2;
       if (Math.abs(x) >= marqueeWidth) {
