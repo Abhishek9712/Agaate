@@ -4,11 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agaate</title>
-    <link rel="icon" type="image/png" href="./public/images/favicon.png" />
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768298535/favicon_spmm8r.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./globals.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              // Slide the content left for 25 seconds, loop forever
+              marquee: 'marquee 25s linear infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
   </head>
   <body class="min-h-screen">
     <div id="header-placeholder"></div>

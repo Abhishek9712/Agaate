@@ -1,12 +1,16 @@
 // Import data (using ES6 modules - will need type="module" in script tag)
-import { stats } from './data/stats.js';
-import { brands } from './data/brands.js';
+import { stats } from './data/stats.js?v=1.0.0';
+import { brands } from './data/brands.js?v=1.0.0';
 
 // Constants
 const TABS = {
   retail: {
     title: "Retail and Distribution",
-    image: "./public/images/farm-retail.jpg",
+    images: [
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295923/farm-retail_wmbm90.png", 
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295949/mall1_vfuhdi.png",
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296166/retail_distribution_upznx9.jpg"
+    ],
     heading: "Retail & Distribution Network",
     points: [
       "Direct farmer connect",
@@ -21,7 +25,11 @@ const TABS = {
   },
   production: {
     title: "Production & R&D",
-    image: "./public/images/smart-nursery.jpg",
+    images: [
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296679/smart-nursery-1_h6lzqk.jpg",
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296679/smart-nursery-2_xc0srg.jpg",
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296680/smart-nursery-3_b7ltfd.jpg"
+    ],
     heading: "17-Acre Smart Nursery",
     points: [
       "Seedless farming environment",
@@ -39,33 +47,33 @@ const TABS = {
 const SLIDES = [
   {
     label: "Daily Monitoring",
-    image: "./public/images/nursery-1.jpg"
+    image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768290473/nursery-1_g4bpff.jpg"
   },
   {
     label: "Precision Irrigation",
-    image: "./public/images/nursery-2.jpg"
+    image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768290546/nursery-2_zzpxux.jpg"
   },
   {
     label: "Climate Control",
-    image: "./public/images/nursery-3.jpg"
+    image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768290971/nursery-3_glzwo2.png"
   }
 ];
 
 const products = [
-  { name: "AgriBegri Combo Pack", image: "./public/images/p1.png" },
-  { name: "Farmson Hybrid Sunflower Seeds", image: "./public/images/p2.png" },
-  { name: "Plant", image: "./public/images/p3.png" },
-  { name: "Decide Ncs Spring Ever", image: "./public/images/p4.png" },
-  { name: "VC-100 Combo Green", image: "./public/images/p5.png" },
-  { name: "Geolife No-Virus Chili", image: "./public/images/p6.png" },
-  { name: "Organeem", image: "./public/images/p7.png" },
-  { name: "Organeem", image: "./public/images/p7.png" },
+  { name: "AgriBegri Combo Pack", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768291018/p1_uzx1en.png" },
+  { name: "Farmson Hybrid Sunflower Seeds", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768291163/p2_fzbujy.png" },
+  { name: "Plant", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768291191/p3_r2i4my.png" },
+  { name: "Decide Ncs Spring Ever", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293118/p4_ki77tl.png" },
+  { name: "VC-100 Combo Green", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293145/p5_myemxy.png" },
+  { name: "Geolife No-Virus Chili", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293171/p6_nnsxmw.png" },
+  { name: "Organeem", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293223/p7_beauop.png" },
+  { name: "Organeem", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293223/p7_beauop.png" },
 ];
 
 const mallBanners = [
-  "./public/images/mall1.jpg",
-  "./public/images/mall2.jpg",
-  "./public/images/mall3.jpg",
+  "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295336/mall1_x0dgn8.png",
+  "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295335/mall2_q070mb.jpg",
+  "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295335/mall3_knljzh.jpg",
 ];
 
 const steps = [
@@ -93,43 +101,43 @@ const steps = [
 
 const farmers = [
   {
-    role: "Commercial Farmer",
-    text: `"The quality of their seeds is unmatched. We've been using AgroSeed products for 5 years and have seen consistent, reliable results every season."`
+    role: "Avinash Kumar",
+    text: `"Farmers first, always. Solution for farmers under one roof #agaatekisanmall …"`
   },
   {
-    role: "Commercial Farmer",
-    text: `"The quality of their seeds is unmatched. We've been using AgroSeed products for 5 years and have seen consistent, reliable results every season."`
+    role: "Pankaj Gupta",
+    text: `"Agaate Kisan Mall is a one‑stop shop for agricultural inputs"`
   },
   {
-    role: "Commercial Farmer",
-    text: `"The quality of their seeds is unmatched. We've been using AgroSeed products for 5 years and have seen consistent, reliable results every season."`
+    role: "Abhay Ranjan",
+    text: `"A farm to experience, multiple farming technologies, products, seeds varieties , nursery for vegetables, multiple cops and best practices in farming"`
   }
 ];
 
 const investors = [
   {
-    role: "Investor",
+    role: "Anonymous",
     text: `"Agaate has built a sustainable, scalable model in agriculture. Strong fundamentals, strong execution."`
   },
   {
-    role: "Investor",
+    role: "Anonymous",
     text: `"Impressive technology adoption with real on-ground impact for farmers."`
   },
   {
-    role: "Investor",
+    role: "Anonymous",
     text: `"Clear roadmap, strong leadership, and long-term vision."`
   }
 ];
 
 const team = [
-  { img: "./public/images/ankit.jpg", name: "Ankit Rawat", role: "Founder & CEO" },
-  { img: "./public/images/kuldeep.jpg", name: "Kuldeep Singh Singhar", role: "Head of Operations (Farm + Crop Sales)" },
-  { img: "./public/images/abhay.jpg", name: "Abhay Ranjan", role: "Chief of Staff (Nursery + Mall Sales)" },
-  { img: "./public/images/vijay.jpg", name: "Vijay Singh", role: "Farmer Relationships / Crop Sales" },
-  { img: "./public/images/chanchala.jpg", name: "Chanchala Shukla", role: "Agronomist" },
-  { img: "./public/images/alok.jpg", name: "Alok", role: "Nursery Owner" },
-  { img: "./public/images/chandramani.jpg", name: "Chandramani", role: "Mall Sales" },
-  { img: "./public/images/pradeep.jpg", name: "Pradeep", role: "Mall Sales" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296769/ankit_zjzhsg.png", name: "Ankit Rawat", role: "Founder & CEO" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296775/kuldeep_z6kxxb.png", name: "Kuldeep Singh Singhar", role: "Head of Operations (Farm + Crop Sales)" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296766/abhay_zopdrz.jpg", name: "Abhay Ranjan", role: "Chief of Staff (Nursery + Mall Sales)" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296846/vijay_awreg7.jpg", name: "Vijay Singh", role: "Farmer Relationships / Crop Sales" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296771/chanchala_d4xdxk.png", name: "Chanchala Shukla", role: "Agronomist" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296768/alok_ptha02.jpg", name: "Alok", role: "Nursery Owner" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296774/chandramani_c2i3bg.png", name: "Chandramani", role: "Mall Sales" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296776/pradeep_okj1uu.jpg", name: "Pradeep", role: "Mall Sales" },
   // { img: "./public/images/ravi.png", name: "Ravi Kumar", role: "Data & Strategy" },
   // Note: mishra.jpg and ujjwal.jpg may not exist, so excluding them
 ];
@@ -140,6 +148,8 @@ let ecosystemTab = "production";
 let slideIndex = 0;
 let mallIndex = 0;
 let testimonialTab = "farmers";
+let ecosystemImageIndex = 0;
+let ecosystemInterval = null;
 
 // Initialize page - wait for DOM and ensure elements exist
 function initializePage() {
@@ -192,6 +202,7 @@ function renderStats() {
   `).join("");
 }
 
+
 // Render Brands
 function renderBrands() {
   const container = document.getElementById("brands-container");
@@ -201,14 +212,28 @@ function renderBrands() {
   
   if (currentBrands.length === 0) {
     container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">No brands available for this category.</div>';
+    // Remove layout classes so message centers properly
+    container.classList.remove("animate-marquee", "flex", "w-max");
     return;
   }
   
-  container.innerHTML = currentBrands.map(logo => `
-    <div class="relative w-28 h-14 sm:w-32 sm:h-16 md:w-36 md:h-18 lg:w-40 lg:h-20 grayscale hover:grayscale-0 transition duration-300">
+  // 1. Original Set (Visible on Mobile & Desktop)
+  const originalSet = currentBrands.map(logo => `
+    <div class="relative w-28 h-14 sm:w-32 sm:h-16 md:w-36 md:h-18 lg:w-40 lg:h-20 grayscale hover:grayscale-0 transition duration-300 flex-shrink-0">
       <img src="${logo}" alt="Brand logo" class="w-full h-full object-contain" />
     </div>
   `).join("");
+
+  // 2. Duplicate Set (Visible on Mobile ONLY)
+  // We add 'md:hidden' so these vanish when the layout switches to Grid
+  const duplicateSet = currentBrands.map(logo => `
+    <div class="relative w-28 h-14 sm:w-32 sm:h-16 md:hidden grayscale hover:grayscale-0 transition duration-300 flex-shrink-0">
+      <img src="${logo}" alt="Brand logo" class="w-full h-full object-contain" />
+    </div>
+  `).join("");
+
+  // Combine them
+  container.innerHTML = originalSet + duplicateSet;
 }
 
 // Setup Brand Tabs
@@ -334,6 +359,7 @@ function setupTestimonialTabs() {
 }
 
 // Setup Ecosystem Tabs
+// Setup Ecosystem Tabs & Carousel
 function setupEcosystemTabs() {
   const tabButtons = document.querySelectorAll(".ecosystem-tab");
   const imageEl = document.getElementById("ecosystem-image");
@@ -341,43 +367,98 @@ function setupEcosystemTabs() {
   const pointsEl = document.getElementById("ecosystem-points");
   const subEl = document.getElementById("ecosystem-sub");
   
+  // Get Button Elements
+  const prevBtn = document.getElementById("eco-prev");
+  const nextBtn = document.getElementById("eco-next");
+
   if (!tabButtons.length || !imageEl || !headingEl || !pointsEl || !subEl) {
     console.warn("Ecosystem tab elements not found");
     return;
   }
-  
+
+  // Function to render the current image based on tab and index
+  function updateEcosystemImage() {
+    const tabData = TABS[ecosystemTab];
+    if (tabData && tabData.images && tabData.images.length > 0) {
+      // Ensure index is within bounds
+      if (ecosystemImageIndex >= tabData.images.length) ecosystemImageIndex = 0;
+      if (ecosystemImageIndex < 0) ecosystemImageIndex = tabData.images.length - 1;
+      
+      imageEl.src = tabData.images[ecosystemImageIndex];
+    }
+  }
+
+  // Function to update text content (runs only when switching tabs)
   function updateEcosystemContent() {
     const tab = TABS[ecosystemTab];
-    if (!tab) {
-      console.warn(`Tab ${ecosystemTab} not found`);
-      return;
-    }
-    
-    if (imageEl) imageEl.src = tab.image;
+    if (!tab) return;
+
     if (headingEl) headingEl.textContent = tab.heading;
     if (pointsEl) {
       pointsEl.innerHTML = tab.points.map(p => `<li>${p}</li>`).join("");
     }
     if (subEl) subEl.textContent = tab.sub;
+    
+    // Reset image index to 0 when switching tabs
+    ecosystemImageIndex = 0;
+    updateEcosystemImage();
+    resetInterval();
   }
-  
+
+  // Navigation Logic
+  function nextImage() {
+    const tabData = TABS[ecosystemTab];
+    if (!tabData) return;
+    ecosystemImageIndex = (ecosystemImageIndex + 1) % tabData.images.length;
+    updateEcosystemImage();
+  }
+
+  function prevImage() {
+    const tabData = TABS[ecosystemTab];
+    if (!tabData) return;
+    ecosystemImageIndex = (ecosystemImageIndex - 1 + tabData.images.length) % tabData.images.length;
+    updateEcosystemImage();
+  }
+
+  // Auto-Scroll Logic
+  function resetInterval() {
+    if (ecosystemInterval) clearInterval(ecosystemInterval);
+    ecosystemInterval = setInterval(nextImage, 2500); // 2.5 Seconds
+  }
+
+  // Event Listeners for Buttons
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextImage();
+      resetInterval(); // Reset timer when manually clicked
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevImage();
+      resetInterval(); // Reset timer when manually clicked
+    });
+  }
+
+  // Tab Click Listeners
   tabButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       ecosystemTab = btn.getAttribute("data-ecosystem-tab");
-      
-      // Update active state
+
+      // Update active state styles
       tabButtons.forEach(b => {
         b.classList.remove("bg-yellow-400", "text-white");
         b.classList.add("bg-white", "border", "text-green-700");
       });
       btn.classList.remove("bg-white", "border", "text-green-700");
       btn.classList.add("bg-yellow-400", "text-white");
-      
+
       updateEcosystemContent();
     });
   });
-  
-  // Initialize with default content
+
+  // Initialize
   updateEcosystemContent();
 }
 
