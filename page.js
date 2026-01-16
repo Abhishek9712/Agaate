@@ -137,7 +137,7 @@ const team = [
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296771/chanchala_d4xdxk.png", name: "Chanchala Shukla", role: "Agronomist" },
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296768/alok_ptha02.jpg", name: "Alok", role: "Nursery Owner" },
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296774/chandramani_c2i3bg.png", name: "Chandramani", role: "Mall Sales" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296776/pradeep_okj1uu.jpg", name: "Pradeep", role: "Mall Sales" },
+  // { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296776/pradeep_okj1uu.jpg", name: "Pradeep", role: "Mall Sales" },
   // { img: "./public/images/ravi.png", name: "Ravi Kumar", role: "Data & Strategy" },
   // Note: mishra.jpg and ujjwal.jpg may not exist, so excluding them
 ];
@@ -154,7 +154,7 @@ let ecosystemInterval = null;
 // Initialize page - wait for DOM and ensure elements exist
 function initializePage() {
   // Check if required elements exist
-  const statsContainer = document.getElementById("stats-container");
+  const statsContainer = document.getElementById("stats-wrapper");
   const brandsContainer = document.getElementById("brands-container");
   
   if (!statsContainer || !brandsContainer) {
@@ -175,6 +175,8 @@ function initializePage() {
   setupNurseryCarousel();
   setupMallCarousel();
   setupTeamMarquee();
+  setupBackToTop();
+  setupBrandsInteraction();
 }
 
 // Try to initialize immediately if DOM is ready, otherwise wait
@@ -187,15 +189,18 @@ if (document.readyState === 'loading') {
 
 // Render Stats
 function renderStats() {
-  const container = document.getElementById("stats-container");
-  if (!container) return;
-  
-  container.innerHTML = stats.map(stat => `
-    <div class="text-center flex-1">
+  const wrapper = document.getElementById("stats-wrapper");
+  if (!wrapper) return;
+
+  // Duplicate stats for seamless infinite scroll
+  const duplicatedStats = [...stats, ...stats];
+
+  wrapper.innerHTML = duplicatedStats.map(stat => `
+    <div class="min-w-[220px] sm:min-w-[260px] text-center">
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400">
         ${stat.metric}
       </h2>
-      <p class="mt-2 text-xs sm:text-sm md:text-base opacity-80 text-gray-500">
+      <p class="mt-2 text-xs sm:text-sm md:text-base text-gray-500">
         ${stat.description}
       </p>
     </div>
@@ -207,33 +212,46 @@ function renderStats() {
 function renderBrands() {
   const container = document.getElementById("brands-container");
   if (!container) return;
-  
+
   const currentBrands = brands[activeTab] || [];
-  
+
+  // If no brands, show message
   if (currentBrands.length === 0) {
-    container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">No brands available for this category.</div>';
-    // Remove layout classes so message centers properly
-    container.classList.remove("animate-marquee", "flex", "w-max");
+    container.innerHTML = `
+      <div class="text-center text-gray-500 py-8">
+        No brands available for this category.
+      </div>
+    `;
+    container.classList.remove("brands-marquee");
     return;
   }
-  
-  // 1. Original Set (Visible on Mobile & Desktop)
-  const originalSet = currentBrands.map(logo => `
-    <div class="relative w-28 h-14 sm:w-32 sm:h-16 md:w-36 md:h-18 lg:w-40 lg:h-20 grayscale hover:grayscale-0 transition duration-300 flex-shrink-0">
-      <img src="${logo}" alt="Brand logo" class="w-full h-full object-contain" />
-    </div>
-  `).join("");
 
-  // 2. Duplicate Set (Visible on Mobile ONLY)
-  // We add 'md:hidden' so these vanish when the layout switches to Grid
-  const duplicateSet = currentBrands.map(logo => `
-    <div class="relative w-28 h-14 sm:w-32 sm:h-16 md:hidden grayscale hover:grayscale-0 transition duration-300 flex-shrink-0">
-      <img src="${logo}" alt="Brand logo" class="w-full h-full object-contain" />
-    </div>
-  `).join("");
+  // Duplicate brands for infinite scroll (VERY IMPORTANT)
+  const duplicatedBrands = [...currentBrands, ...currentBrands];
 
-  // Combine them
-  container.innerHTML = originalSet + duplicateSet;
+  container.classList.add("brands-marquee");
+
+  container.innerHTML = duplicatedBrands
+    .map(
+      (logo) => `
+      <div
+        class="relative w-28 h-14
+               sm:w-32 sm:h-16
+               md:w-36 md:h-18
+               lg:w-40 lg:h-20
+               grayscale hover:grayscale-0
+               transition duration-300
+               flex-shrink-0"
+      >
+        <img
+          src="${logo}"
+          alt="Brand logo"
+          class="w-full h-full object-contain"
+        />
+      </div>
+    `
+    )
+    .join("");
 }
 
 // Setup Brand Tabs
@@ -272,6 +290,33 @@ function setupBrandTabs() {
       renderBrands();
     });
   });
+}
+
+function setupBrandsInteraction() {
+  const scroll = document.getElementById("brands-scroll");
+  const marquee = document.getElementById("brands-container");
+  if (!scroll || !marquee) return;
+
+  let resumeTimer;
+
+  const pause = () => {
+    marquee.classList.add("brands-paused");
+    clearTimeout(resumeTimer);
+  };
+
+  const resume = () => {
+    resumeTimer = setTimeout(() => {
+      marquee.classList.remove("brands-paused");
+    }, 1200);
+  };
+
+  // Touch
+  scroll.addEventListener("touchstart", pause, { passive: true });
+  scroll.addEventListener("touchend", resume);
+
+  // Mouse
+  scroll.addEventListener("mouseenter", pause);
+  scroll.addEventListener("mouseleave", resume);
 }
 
 // Render Products
@@ -584,5 +629,30 @@ function setupTeamMarquee() {
   setTimeout(() => {
     animate();
   }, 100);
+}
+
+// Back to Top Button
+function setupBackToTop() {
+  const btn = document.getElementById("backToTop");
+  if (!btn) return;
+
+  // Show / hide button on scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btn.classList.remove("hidden");
+      btn.classList.add("flex");
+    } else {
+      btn.classList.add("hidden");
+      btn.classList.remove("flex");
+    }
+  });
+
+  // Scroll to top on click
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 }
 

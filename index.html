@@ -27,7 +27,56 @@
         }
       }
     </script>
+    <style>
+      @keyframes statsScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .stats-marquee {
+        animation: statsScroll 25s linear infinite;
+      }
+
+      @media (hover: hover) {
+        .stats-marquee:hover {
+          animation-play-state: paused;
+        }
+      }
+
+      @keyframes brandsScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      .brands-marquee {
+        animation: brandsScroll 30s linear infinite;
+      }
+      
+      .brands-paused {
+        animation-play-state: paused;
+      }
+    </style>
   </head>
+  <!-- Back to Top Button -->
+  <button
+    id="backToTop"
+    aria-label="Scroll to top"
+    class="fixed bottom-6 right-6 z-50 hidden items-center justify-center
+           w-12 h-12 rounded-full bg-green-700 text-white shadow-lg
+           hover:bg-green-800 transition-all duration-300
+           focus:outline-none"
+  >
+    ↑
+  </button>
+
   <body class="min-h-screen">
     <div id="header-placeholder"></div>
     <div id="page-content"></div>
