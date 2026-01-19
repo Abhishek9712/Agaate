@@ -2,6 +2,12 @@
 import { stats } from './data/stats.js?v=1.0.0';
 import { brands } from './data/brands.js?v=1.0.0';
 
+const HERO_IMAGES = [
+  "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768822300/AI_Generated_mcsxqt.png",
+  "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768819282/3_un4rsz.png",
+  "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768815470/Hero_Section_vq8xav.png"
+];
+
 // Constants
 const TABS = {
   retail: {
@@ -163,6 +169,7 @@ function initializePage() {
     return;
   }
   
+  setupHeroSlider();
   renderStats();
   renderBrands();
   renderProducts();
@@ -185,6 +192,59 @@ if (document.readyState === 'loading') {
 } else {
   // DOM already loaded, but wait a bit for dynamic content
   setTimeout(initializePage, 200);
+}
+
+// Hero section 
+let heroIndex = 0;
+let showingFirst = true;
+
+function setupHeroSlider() {
+  const img1 = document.getElementById("hero-img-1");
+  const img2 = document.getElementById("hero-img-2");
+
+  if (!img1 || !img2) return;
+
+  // Set initial image
+  img1.src = HERO_IMAGES[heroIndex];
+
+  function changeHero(index) {
+    const nextImage = HERO_IMAGES[index];
+
+    const showImg = showingFirst ? img2 : img1;
+    const hideImg = showingFirst ? img1 : img2;
+
+    showImg.src = nextImage;
+
+    showImg.classList.remove("opacity-0");
+    showImg.classList.add("opacity-100");
+
+    hideImg.classList.remove("opacity-100");
+    hideImg.classList.add("opacity-0");
+
+    showingFirst = !showingFirst;
+  }
+
+  function nextHero() {
+    heroIndex = (heroIndex + 1) % HERO_IMAGES.length;
+    changeHero(heroIndex);
+  }
+
+  function prevHero() {
+    heroIndex =
+      (heroIndex - 1 + HERO_IMAGES.length) % HERO_IMAGES.length;
+    changeHero(heroIndex);
+  }
+
+  document
+    .getElementById("hero-next")
+    ?.addEventListener("click", nextHero);
+
+  document
+    .getElementById("hero-prev")
+    ?.addEventListener("click", prevHero);
+
+  // Optional auto slide
+  setInterval(nextHero, 5000);
 }
 
 // Render Stats
