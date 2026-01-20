@@ -8,6 +8,45 @@ const HERO_IMAGES = [
   "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768815470/Hero_Section_vq8xav.png"
 ];
 
+const HERO_CONTENT = [
+  {
+    heading: `Seedless Farming <br />
+      <span class="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
+        Higher Yield, Lower Risk
+      </span>`,
+    description:
+      "Our bio-boosted nursery model ensures 90–98% germination, reduces seed waste, and improves farmer profitability.",
+    primaryText: "Our Process",
+    primaryLink: "#journey",
+    secondaryText: "Know More",
+    secondaryLink: "#about",
+  },
+  {
+    heading: `Farmer-First Innovation <br />
+      <span class="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
+        From Nursery to Market
+      </span>`,
+    description:
+      "An end-to-end ecosystem empowering farmers with technology, training, inputs, and assured market access.",
+    primaryText: "Kisan Mall",
+    primaryLink: "#kisanmall",
+    secondaryText: "Join Us",
+    secondaryLink: "#contact",
+  },
+  {
+    heading: `Natural Farming <br />
+      <span class="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
+        Technology-Driven Agriculture
+      </span>`,
+    description:
+      "We grow food the natural way — chemical-free, nutrient-rich, and sustainable. Combining traditional wisdom with modern seedless farming.",
+    primaryText: "Explore",
+    primaryLink: "#nursery",
+    secondaryText: "Contact",
+    secondaryLink: "#contact",
+  },
+];
+
 // Constants
 const TABS = {
   retail: {
@@ -66,14 +105,14 @@ const SLIDES = [
 ];
 
 const products = [
-  { name: "AgriBegri Combo Pack", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768291018/p1_uzx1en.png" },
-  { name: "Farmson Hybrid Sunflower Seeds", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768291163/p2_fzbujy.png" },
+  { name: "Biocure", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768891576/1_hb80js.png" },
+  { name: "Stanes Symbion Vam Plus", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892189/2_zcilz7.png" },
   { name: "Plant", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768291191/p3_r2i4my.png" },
-  { name: "Decide Ncs Spring Ever", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293118/p4_ki77tl.png" },
-  { name: "VC-100 Combo Green", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293145/p5_myemxy.png" },
-  { name: "Geolife No-Virus Chili", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293171/p6_nnsxmw.png" },
-  { name: "Organeem", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293223/p7_beauop.png" },
-  { name: "Organeem", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768293223/p7_beauop.png" },
+  { name: "Hybrid Cauliflower", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892282/4_ipa7ns.png" },
+  { name: "Biocure", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892429/Biocure_fwide4.png" },
+  { name: "Biovita", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892922/Biovita_mkbjlr.png" },
+  { name: "Bio Nimaton", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768893025/Bio_Nimaton_gjshta.png" },
+  { name: "Plantex", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768893105/Plantex_guxwxa.png" },
 ];
 
 const mallBanners = [
@@ -184,6 +223,7 @@ function initializePage() {
   setupTeamMarquee();
   setupBackToTop();
   setupBrandsInteraction();
+  updateHeroContent(heroIndex);
 }
 
 // Try to initialize immediately if DOM is ready, otherwise wait
@@ -221,6 +261,8 @@ function setupHeroSlider() {
     hideImg.classList.remove("opacity-100");
     hideImg.classList.add("opacity-0");
 
+    updateHeroContent(index);
+
     showingFirst = !showingFirst;
   }
 
@@ -233,6 +275,33 @@ function setupHeroSlider() {
     heroIndex =
       (heroIndex - 1 + HERO_IMAGES.length) % HERO_IMAGES.length;
     changeHero(heroIndex);
+  }
+
+  function updateHeroContent(index) {
+    const content = HERO_CONTENT[index];
+    if (!content) return;
+
+    const headingEl = document.getElementById("hero-heading");
+    const descEl = document.getElementById("hero-description");
+    const primaryBtn = document.getElementById("hero-primary-btn");
+    const secondaryBtn = document.getElementById("hero-secondary-btn");
+
+    // Fade out
+    descEl.classList.add("opacity-0");
+
+    setTimeout(() => {
+      headingEl.innerHTML = content.heading;
+      descEl.textContent = content.description;
+
+      primaryBtn.href = content.primaryLink;
+      primaryBtn.querySelector("button").textContent = content.primaryText;
+
+      secondaryBtn.href = content.secondaryLink;
+      secondaryBtn.childNodes[0].textContent = content.secondaryText;
+
+      // Fade in
+      descEl.classList.remove("opacity-0");
+    }, 300);
   }
 
   document
