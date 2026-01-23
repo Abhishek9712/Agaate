@@ -10,24 +10,24 @@ const HERO_IMAGES = [
 
 const HERO_CONTENT = [
   {
-    heading: `Seedless Farming <br />
+    heading: `Better Harvests <br />
       <span class="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
-        Higher Yield, Lower Risk
+        Begin With Strong Roots
       </span>`,
     description:
-      "Our bio-boosted nursery model ensures 90–98% germination, reduces seed waste, and improves farmer profitability.",
-    primaryText: "Our Process",
-    primaryLink: "#journey",
-    secondaryText: "Know More",
-    secondaryLink: "#about",
+      "We empower farmers with Bio-Boosted Nursery crops and sustainable farming solutions that increase yield, reduce seed loss, and strengthen farm profitability.",
+    primaryText: "Book Nursery",
+    primaryLink: "#contact",
+    secondaryText: "Farming Solutions",
+    secondaryLink: "#farming_solutions",
   },
   {
     heading: `Farmer-First Innovation <br />
       <span class="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
-        From Nursery to Market
+        Nursery to Market
       </span>`,
     description:
-      "An end-to-end ecosystem empowering farmers with technology, training, inputs, and assured market access.",
+      "An end-to-end ecosystem empowering farmers with technology, training, inputs, and assured market access at scale, built for rapid expansion and long-term value creation.",
     primaryText: "Kisan Mall",
     primaryLink: "#kisanmall",
     secondaryText: "Join Us",
@@ -52,9 +52,9 @@ const TABS = {
   retail: {
     title: "Retail and Distribution",
     images: [
-      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295923/farm-retail_wmbm90.png", 
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295923/farm-retail_wmbm90.png",
       "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768295949/mall1_vfuhdi.png",
-      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296166/retail_distribution_upznx9.jpg"
+      "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1769082436/Agaate_Website_ugqqdn.png"
     ],
     heading: "Retail & Distribution Network",
     points: [
@@ -178,13 +178,13 @@ const team = [
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296769/ankit_zjzhsg.png", name: "Ankit Rawat", role: "Founder & CEO" },
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296775/kuldeep_z6kxxb.png", name: "Kuldeep Singh Singhar", role: "Head of Operations (Farm + Crop Sales)" },
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296766/abhay_zopdrz.jpg", name: "Abhay Ranjan", role: "Chief of Staff (Nursery + Mall Sales)" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296846/vijay_awreg7.jpg", name: "Vijay Singh", role: "Farmer Relationships / Crop Sales" },
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296771/chanchala_d4xdxk.png", name: "Chanchala Shukla", role: "Agronomist" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296768/alok_ptha02.jpg", name: "Alok", role: "Nursery Owner" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296774/chandramani_c2i3bg.png", name: "Chandramani", role: "Mall Sales" },
-  // { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296776/pradeep_okj1uu.jpg", name: "Pradeep", role: "Mall Sales" },
-  // { img: "./public/images/ravi.png", name: "Ravi Kumar", role: "Data & Strategy" },
-  // Note: mishra.jpg and ujjwal.jpg may not exist, so excluding them
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1769153123/Ravi_ovened.jpg", name: "Ravi Kumar", role: "Data & Strategy" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296769/ankit_zjzhsg.png", name: "Ankit Rawat", role: "Founder & CEO" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296775/kuldeep_z6kxxb.png", name: "Kuldeep Singh Singhar", role: "Head of Operations (Farm + Crop Sales)" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296766/abhay_zopdrz.jpg", name: "Abhay Ranjan", role: "Chief of Staff (Nursery + Mall Sales)" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296771/chanchala_d4xdxk.png", name: "Chanchala Shukla", role: "Agronomist" },
+  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1769153123/Ravi_ovened.jpg", name: "Ravi Kumar", role: "Data & Strategy" },
 ];
 
 // State
@@ -201,13 +201,13 @@ function initializePage() {
   // Check if required elements exist
   const statsContainer = document.getElementById("stats-wrapper");
   const brandsContainer = document.getElementById("brands-container");
-  
+
   if (!statsContainer || !brandsContainer) {
     // Retry after a short delay
     setTimeout(initializePage, 100);
     return;
   }
-  
+
   setupHeroSlider();
   renderStats();
   renderBrands();
@@ -223,7 +223,6 @@ function initializePage() {
   setupTeamMarquee();
   setupBackToTop();
   setupBrandsInteraction();
-  updateHeroContent(heroIndex);
 }
 
 // Try to initialize immediately if DOM is ready, otherwise wait
@@ -294,7 +293,7 @@ function setupHeroSlider() {
       descEl.textContent = content.description;
 
       primaryBtn.href = content.primaryLink;
-      primaryBtn.querySelector("button").textContent = content.primaryText;
+      primaryBtn.querySelector(".hero-primary-text").textContent = content.primaryText;
 
       secondaryBtn.href = content.secondaryLink;
       secondaryBtn.childNodes[0].textContent = content.secondaryText;
@@ -311,6 +310,8 @@ function setupHeroSlider() {
   document
     .getElementById("hero-prev")
     ?.addEventListener("click", prevHero);
+
+  updateHeroContent(heroIndex);
 
   // Optional auto slide
   setInterval(nextHero, 5000);
@@ -386,12 +387,12 @@ function renderBrands() {
 // Setup Brand Tabs
 function setupBrandTabs() {
   const tabButtons = document.querySelectorAll(".brand-tab");
-  
+
   if (!tabButtons.length) {
     console.warn("Brand tab buttons not found");
     return;
   }
-  
+
   // Set initial active state
   tabButtons.forEach(btn => {
     const tabKey = btn.getAttribute("data-tab");
@@ -403,11 +404,11 @@ function setupBrandTabs() {
       btn.classList.add("bg-white", "text-green-700", "border");
     }
   });
-  
+
   tabButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       activeTab = btn.getAttribute("data-tab");
-      
+
       // Update active state
       tabButtons.forEach(b => {
         b.classList.remove("bg-yellow-400", "text-white");
@@ -415,7 +416,7 @@ function setupBrandTabs() {
       });
       btn.classList.remove("bg-white", "text-green-700", "border");
       btn.classList.add("bg-yellow-400", "text-white");
-      
+
       renderBrands();
     });
   });
@@ -452,7 +453,7 @@ function setupBrandsInteraction() {
 function renderProducts() {
   const container = document.getElementById("products-container");
   if (!container) return;
-  
+
   container.innerHTML = products.map((p, i) => `
     <div class="bg-gray-100 rounded-2xl p-10 md:p-9 shadow flex flex-col items-center text-center">
       <div class="relative w-36 h-36 md:w-30 md:h-30 lg:w-40 lg:h-40 mb-4">
@@ -467,7 +468,7 @@ function renderProducts() {
 function renderSteps() {
   const container = document.getElementById("steps-container");
   if (!container) return;
-  
+
   container.innerHTML = steps.map(s => `
     <div class="bg-white rounded-xl px-5 py-10 shadow flex flex-col gap-2 text-center">
       <div class="mx-auto flex items-center justify-center w-10 h-10 rounded-full bg-green-600 text-white font-bold">
@@ -483,7 +484,7 @@ function renderSteps() {
 function renderTestimonials() {
   const container = document.getElementById("testimonials-container");
   if (!container) return;
-  
+
   const list = testimonialTab === "farmers" ? farmers : investors;
   container.innerHTML = list.map(item => `
     <div class="bg-white rounded-2xl shadow p-6 text-left">
@@ -497,12 +498,12 @@ function renderTestimonials() {
 // Setup Testimonial Tabs
 function setupTestimonialTabs() {
   const tabButtons = document.querySelectorAll(".testimonial-tab");
-  
+
   if (!tabButtons.length) {
     console.warn("Testimonial tab buttons not found");
     return;
   }
-  
+
   // Set initial active state
   tabButtons.forEach(btn => {
     const tabKey = btn.getAttribute("data-testimonial-tab");
@@ -514,11 +515,11 @@ function setupTestimonialTabs() {
       btn.classList.add("bg-white", "border");
     }
   });
-  
+
   tabButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       testimonialTab = btn.getAttribute("data-testimonial-tab");
-      
+
       // Update active state
       tabButtons.forEach(b => {
         b.classList.remove("bg-green-700", "text-white");
@@ -526,7 +527,7 @@ function setupTestimonialTabs() {
       });
       btn.classList.remove("bg-white", "border");
       btn.classList.add("bg-green-700", "text-white");
-      
+
       renderTestimonials();
     });
   });
@@ -540,7 +541,7 @@ function setupEcosystemTabs() {
   const headingEl = document.getElementById("ecosystem-heading");
   const pointsEl = document.getElementById("ecosystem-points");
   const subEl = document.getElementById("ecosystem-sub");
-  
+
   // Get Button Elements
   const prevBtn = document.getElementById("eco-prev");
   const nextBtn = document.getElementById("eco-next");
@@ -557,7 +558,7 @@ function setupEcosystemTabs() {
       // Ensure index is within bounds
       if (ecosystemImageIndex >= tabData.images.length) ecosystemImageIndex = 0;
       if (ecosystemImageIndex < 0) ecosystemImageIndex = tabData.images.length - 1;
-      
+
       imageEl.src = tabData.images[ecosystemImageIndex];
     }
   }
@@ -572,7 +573,7 @@ function setupEcosystemTabs() {
       pointsEl.innerHTML = tab.points.map(p => `<li>${p}</li>`).join("");
     }
     if (subEl) subEl.textContent = tab.sub;
-    
+
     // Reset image index to 0 when switching tabs
     ecosystemImageIndex = 0;
     updateEcosystemImage();
@@ -642,26 +643,26 @@ function setupNurseryCarousel() {
   const labelEl = document.getElementById("nursery-label");
   const prevBtn = document.getElementById("nursery-prev");
   const nextBtn = document.getElementById("nursery-next");
-  
+
   function updateSlide() {
     const slide = SLIDES[slideIndex];
     if (slideEl) slideEl.src = slide.image;
     if (labelEl) labelEl.textContent = slide.label;
   }
-  
+
   function next() {
     slideIndex = (slideIndex + 1) % SLIDES.length;
     updateSlide();
   }
-  
+
   function prev() {
     slideIndex = (slideIndex - 1 + SLIDES.length) % SLIDES.length;
     updateSlide();
   }
-  
+
   if (prevBtn) prevBtn.addEventListener("click", prev);
   if (nextBtn) nextBtn.addEventListener("click", next);
-  
+
   // Auto-advance
   setInterval(next, 2500);
   updateSlide();
@@ -670,19 +671,19 @@ function setupNurseryCarousel() {
 // Setup Mall Carousel
 function setupMallCarousel() {
   const bannerEl = document.getElementById("mall-banner");
-  
+
   function updateMallBanner() {
     if (bannerEl) {
       bannerEl.src = mallBanners[mallIndex];
     }
   }
-  
+
   // Auto-advance
   setInterval(() => {
     mallIndex = (mallIndex + 1) % mallBanners.length;
     updateMallBanner();
   }, 2500);
-  
+
   updateMallBanner();
 }
 
@@ -690,10 +691,10 @@ function setupMallCarousel() {
 function renderTeam() {
   const container = document.getElementById("team-marquee");
   if (!container) return;
-  
+
   // Duplicate team array for seamless loop
   const duplicatedTeam = [...team, ...team];
-  
+
   container.innerHTML = duplicatedTeam.map((p, i) => `
     <div class="flex flex-col items-center">
       <div class="group w-28 h-40 sm:w-32 sm:h-44 md:w-36 md:h-52 lg:w-40 lg:h-56 xl:w-44 xl:h-60 2xl:w-48 2xl:h-64" style="perspective: 1000px;">
@@ -709,7 +710,7 @@ function renderTeam() {
       </div>
     </div>
   `).join("");
-  
+
   // Add hover effect for 3D flip
   container.querySelectorAll(".team-card").forEach(card => {
     card.style.transformStyle = "preserve-3d";
@@ -728,11 +729,11 @@ function setupTeamMarquee() {
   const container = document.getElementById("team-container");
   const marquee = document.getElementById("team-marquee");
   if (!container || !marquee) return;
-  
+
   let x = 0;
   let animationId;
   let isPaused = false;
-  
+
   function animate() {
     if (!isPaused) {
       x -= 0.3;
@@ -745,15 +746,15 @@ function setupTeamMarquee() {
     }
     animationId = requestAnimationFrame(animate);
   }
-  
+
   container.addEventListener("mouseenter", () => {
     isPaused = true;
   });
-  
+
   container.addEventListener("mouseleave", () => {
     isPaused = false;
   });
-  
+
   // Start animation after a short delay to ensure DOM is ready
   setTimeout(() => {
     animate();
