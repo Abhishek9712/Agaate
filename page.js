@@ -2,6 +2,9 @@
 import { stats } from './data/stats.js?v=1.0.0';
 import { brands } from './data/brands.js?v=1.0.0';
 
+
+let teamMarqueeRAF = null;
+
 const HERO_IMAGES = [
   "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768822300/AI_Generated_mcsxqt.png",
   "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768819282/3_un4rsz.png",
@@ -96,20 +99,20 @@ const SLIDES = [
   },
   {
     label: "Precision Irrigation",
-    image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768290546/nursery-2_zzpxux.jpg"
+    image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1770360000/Precision_Irrigation_c3qlid.jpg"
   },
   {
     label: "Climate Control",
-    image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768290971/nursery-3_glzwo2.png"
+    image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768290546/nursery-2_zzpxux.jpg"
   }
 ];
 
 const products = [
-  { name: "Biocure", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768891576/1_hb80js.png" },
+  { name: "Biocure F", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768891576/1_hb80js.png" },
   { name: "Stanes Symbion Vam Plus", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892189/2_zcilz7.png" },
   { name: "Plant", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768291191/p3_r2i4my.png" },
   { name: "Hybrid Cauliflower", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892282/4_ipa7ns.png" },
-  { name: "Biocure", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892429/Biocure_fwide4.png" },
+  { name: "Biocure B", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892429/Biocure_fwide4.png" },
   { name: "Biovita", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768892922/Biovita_mkbjlr.png" },
   { name: "Bio Nimaton", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768893025/Bio_Nimaton_gjshta.png" },
   { name: "Plantex", image: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768893105/Plantex_guxwxa.png" },
@@ -180,11 +183,6 @@ const team = [
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296766/abhay_zopdrz.jpg", name: "Abhay Ranjan", role: "Chief of Staff (Nursery + Mall Sales)" },
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296771/chanchala_d4xdxk.png", name: "Chanchala Shukla", role: "Agronomist" },
   { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1769153123/Ravi_ovened.jpg", name: "Ravi Kumar", role: "Data & Strategy" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296769/ankit_zjzhsg.png", name: "Ankit Rawat", role: "Founder & CEO" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296775/kuldeep_z6kxxb.png", name: "Kuldeep Singh Singhar", role: "Head of Operations (Farm + Crop Sales)" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296766/abhay_zopdrz.jpg", name: "Abhay Ranjan", role: "Chief of Staff (Nursery + Mall Sales)" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1768296771/chanchala_d4xdxk.png", name: "Chanchala Shukla", role: "Agronomist" },
-  { img: "https://res.cloudinary.com/dsxfpu2tk/image/upload/v1769153123/Ravi_ovened.jpg", name: "Ravi Kumar", role: "Data & Strategy" },
 ];
 
 // State
@@ -195,6 +193,10 @@ let mallIndex = 0;
 let testimonialTab = "farmers";
 let ecosystemImageIndex = 0;
 let ecosystemInterval = null;
+
+function isMobile() {
+  return window.innerWidth < 768;
+}
 
 // Initialize page - wait for DOM and ensure elements exist
 function initializePage() {
@@ -220,7 +222,9 @@ function initializePage() {
   setupTestimonialTabs();
   setupNurseryCarousel();
   setupMallCarousel();
-  setupTeamMarquee();
+  if (isMobile()) {
+    setupTeamMarquee(); // keep marquee ONLY for mobile
+  }
   setupBackToTop();
   setupBrandsInteraction();
 }
@@ -369,7 +373,6 @@ function renderBrands() {
                sm:w-32 sm:h-16
                md:w-36 md:h-18
                lg:w-40 lg:h-20
-               grayscale hover:grayscale-0
                transition duration-300
                flex-shrink-0"
       >
@@ -693,9 +696,9 @@ function renderTeam() {
   if (!container) return;
 
   // Duplicate team array for seamless loop
-  const duplicatedTeam = [...team, ...team];
+  const teamList = isMobile() ? [...team, ...team] : team;
 
-  container.innerHTML = duplicatedTeam.map((p, i) => `
+  container.innerHTML = teamList.map((p, i) => `
     <div class="flex flex-col items-center">
       <div class="group w-28 h-40 sm:w-32 sm:h-44 md:w-36 md:h-52 lg:w-40 lg:h-56 xl:w-44 xl:h-60 2xl:w-48 2xl:h-64" style="perspective: 1000px;">
         <div class="team-card relative w-full h-full rounded-2xl shadow" data-index="${i}">
@@ -710,6 +713,10 @@ function renderTeam() {
       </div>
     </div>
   `).join("");
+
+  if (!isMobile()) {
+    container.style.transform = "none";
+  }
 
   // Add hover effect for 3D flip
   container.querySelectorAll(".team-card").forEach(card => {
@@ -731,34 +738,29 @@ function setupTeamMarquee() {
   if (!container || !marquee) return;
 
   let x = 0;
-  let animationId;
   let isPaused = false;
 
   function animate() {
+    if (!isMobile()) {
+      marquee.style.transform = "none";
+      cancelAnimationFrame(teamMarqueeRAF);
+      return; // 🔥 STOP COMPLETELY ON DESKTOP
+    }
+
     if (!isPaused) {
       x -= 0.3;
-      // Reset when scrolled past the duplicate point
       const marqueeWidth = marquee.scrollWidth / 2;
-      if (Math.abs(x) >= marqueeWidth) {
-        x = 0;
-      }
+      if (Math.abs(x) >= marqueeWidth) x = 0;
       marquee.style.transform = `translateX(${x}px)`;
     }
-    animationId = requestAnimationFrame(animate);
+
+    teamMarqueeRAF = requestAnimationFrame(animate);
   }
 
-  container.addEventListener("mouseenter", () => {
-    isPaused = true;
-  });
+  container.addEventListener("mouseenter", () => isPaused = true);
+  container.addEventListener("mouseleave", () => isPaused = false);
 
-  container.addEventListener("mouseleave", () => {
-    isPaused = false;
-  });
-
-  // Start animation after a short delay to ensure DOM is ready
-  setTimeout(() => {
-    animate();
-  }, 100);
+  animate();
 }
 
 // Back to Top Button
